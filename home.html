@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grupo Cataratas de Eficiência Energética</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/jpg" href="/main-img/Unioeste-Logo.png" />
+</head>
+<body>
+  <!-- Topo -->
+<div class="linha-topo"></div>
+  <header>
+    <div class="logo">
+    <a href="index.html">
+      <img src="/main-img/GCEE-Logo.jpeg" alt="Unioeste" class="logo-img">
+        </a>
+      <div class="logo-texto">
+        <h1>GCEE - Unioeste</h1>
+        <p>Grupo Cataratas de Eficiência Energética</p>
+      </div>
+    </div>
+    <div class="idiomas">
+      <a href="#"><img src="/main-img/brasil.png" alt="🇧🇷" class="flag-icon"></a>
+      <a href="#"><img src="/main-img/great-britain.png" alt="🇺🇸" class="flag-icon"></a>
+      <a href="#"><img src="/main-img/spain.png" alt="🇪🇸" class="flag-icon"></a>
+    </div>
+  </header>
+
+  <!-- Menu -->
+  <nav>
+    <ul>
+      <li><a id="menu-unioeste" href="https://www.unioeste.br/portal/campus-foz-do-iguacu/" target="_blank">Unioeste</a></li>
+      <li><a id="menu-inicio" href="home.html">Início</a></li>
+      <li><a id="menu-projetos" href="#">Projetos</a></li>
+      <li><a id="menu-noticias" href="#">Notícias</a></li>
+      <li><a id="menu-proposito" href="#">Propósito</a></li>
+      <li><a id="menu-patrocinadores" href="sponsors.html">Patrocinadores</a></li>
+    </ul>
+    <input id="searchbar" type="text" placeholder="Pesquisar...">
+  </nav>
+    
+  <!-- Banner -->
+<main>
+  <section class="banner">
+    <img src="/main-img/Banner1.jpg" alt="Vagas Remanescentes">
+    <div class="banner-texto">
+      <div class="banner-container">
+        <h2 id="banner-title">A SHELL ECO-MARATHON</h2>
+        <p id="banner-text1">A Shell Eco-marathon é um dos principais programas de engenharia em eficiência energética para estudantes no mundo. Seu objetivo é ultrapassar os limites do que é tecnicamente possível e inspirar os jovens a se tornarem cientistas e engenheiros líderes em soluções energéticas do futuro.</p>
+        <p id="banner-text2">O programa oferece uma plataforma para que equipes do ensino médio e universitário explorem todos os aspectos do design e da tecnologia, utilizando seus conhecimentos em Ciência, Tecnologia, Engenharia e Matemática (STEM) para construir seus próprios carros ultraeficientes em energia, e depois levá-los à pista em competição.</p>
+        <a id="banner-link" href="https://www.shellecomarathon.com/" target="_blank">CLIQUE AQUI</a>
+      </div>
+      <iframe width="400" height="225" src="https://www.youtube.com/embed/aNGKYFHFTYY?si=DZ0vC8CMkf4mHRr-rel=0" title="Shell Eco-Marathon" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Notícias -->
+  <section class="noticias">
+    <h2 id="noticia-title">Notícias em destaque</h2>
+    <div class="noticia" data-index="0">
+      <div class="seta seta-esquerda">&#9664;</div>
+      <img src="/InstaPosts/PS1.jpg" alt="Notícia 1" class="imagem-noticia">
+      <div class="seta seta-direita">&#9654;</div>
+      <h3 id="noticia-header1">Resultado do Processo Seletivo de 2025</h3>
+      <p id="noticia-text1">O Grupo Cataratas de Eficiência Energética (GCEE) tem a satisfação de anunciar o resultado oficial do Processo Seletivo 2025!
+
+      Após um criterioso processo de análise e entrevistas, queremos parabenizar todos os candidatos que demonstraram empenho, criatividade e dedicação durante todas as etapas. A seleção deste ano reforça o compromisso do GCEE com a excelência acadêmica, a inovação em engenharia e o desenvolvimento de soluções sustentáveis.
+
+      A lista com os aprovados está disponível na aba “Notícias” do nosso site e também será enviada por e-mail aos participantes.
+
+      Aos novos integrantes, sejam muito bem-vindos! Estamos entusiasmados para iniciar mais um ciclo de desafios, projetos e aprendizados. Em breve, divulgaremos as datas para as primeiras reuniões e atividades de integração.
+
+      Agradecemos a todos os inscritos e desejamos sucesso em suas jornadas acadêmicas e profissionais. O futuro da eficiência energética passa por vocês!
+
+      GCEE - Grupo Cataratas de Eficiência Energética
+      Universidade Estadual do Oeste do Paraná – Unioeste</p>
+    </div>
+    <div class="noticia">
+      <div class="seta seta-esquerda">&#9664;</div>
+      <img src="Test_Screen.jpg" alt="Notícia 2">
+      <div class="seta seta-direita">&#9654;</div>
+      <p id="noticia-text2">Surpresa: ablábláblá ablublublu abubléblé 2025.</p>
+    </div>
+  </section>
+</main>
+  <!-- Rodapé -->
+  <footer>
+    <p>© 2025 GCEE - Grupo Cataratas de Eficiência Energética</p>
+  </footer>
+<script>
+  function trocarIdioma(idioma) {
+    fetch(`home-lang/${idioma}.json`)
+      .then(res => res.json())
+      .then(traducao => {
+        for (const id in traducao) {
+          const el = document.getElementById(id);
+          if (el) {
+            if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
+              el.setAttribute('placeholder', traducao[id]);
+            } else {
+              el.textContent = traducao[id];
+            }
+          }
+        }
+      });
+  }
+
+  document.querySelectorAll('.idiomas a').forEach((link, index) => {
+    const idiomas = ['portuguese', 'english', 'spanish'];
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      trocarIdioma(idiomas[index]);
+    });
+  });
+</script>
+<script>
+  const noticias = [
+    {
+      img: "/InstaPosts/PS1.jpg",
+    },
+    {
+      img: "/InstaPosts/PS2.jpg",
+    },
+    {
+      img: "/InstaPosts/PS3.jpg",
+    },
+    {
+      img: "/InstaPosts/PS4.jpg",
+    },
+    {
+      img: "/InstaPosts/PS5.jpg",
+    }
+  ];
+
+  let indiceAtual = 0;
+
+  const imagem = document.querySelector('.imagem-noticia');
+  const setaEsquerda = document.querySelector('.seta-esquerda');
+  const setaDireita = document.querySelector('.seta-direita');
+
+  function atualizarNoticia(index) {
+    imagem.src = noticias[index].img;
+  }
+
+  setaDireita.addEventListener('click', () => {
+    indiceAtual = (indiceAtual + 1) % noticias.length;
+    atualizarNoticia(indiceAtual);
+  });
+
+  setaEsquerda.addEventListener('click', () => {
+    indiceAtual = (indiceAtual - 1 + noticias.length) % noticias.length;
+    atualizarNoticia(indiceAtual);
+  });
+</script>
+</body>
+</html>

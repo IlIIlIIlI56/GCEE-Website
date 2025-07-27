@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grupo Cataratas de Eficiência Energética</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/jpg" href="/main-img/Unioeste-Logo.png" />
+</head>
+<body>
+  <!-- Topo -->
+<div class="linha-topo"></div>
+  <header>
+    <div class="logo">
+    <a href="index.html">
+      <img src="/main-img/GCEE-Logo.jpeg" alt="Unioeste" class="logo-img">
+    </a>
+      <div class="logo-texto">
+        <h1>GCEE - Unioeste</h1>
+        <p>Grupo Cataratas de Eficiência Energética</p>
+      </div>
+    </div>
+    <div class="idiomas">
+      <a href="#"><img src="/main-img/brasil.png" alt="🇧🇷" class="flag-icon"></a>
+      <a href="#"><img src="/main-img/great-britain.png" alt="🇺🇸" class="flag-icon"></a>
+      <a href="#"><img src="/main-img/spain.png" alt="🇪🇸" class="flag-icon"></a>
+    </div>
+  </header>
+
+  <!-- Menu -->
+  <nav>
+    <ul>
+      <li><a id="menu-unioeste" href="https://www.unioeste.br/portal/campus-foz-do-iguacu/" target="_blank">Unioeste</a></li>
+      <li><a id="menu-inicio" href="home.html">Início</a></li>
+      <li><a id="menu-projetos" href="#">Projetos</a></li>
+      <li><a id="menu-noticias" href="#">Notícias</a></li>
+      <li><a id="menu-proposito" href="#">Propósito</a></li>
+      <li><a id="menu-patrocinadores" href="sponsors.html">Patrocinadores</a></li>
+    </ul>
+    <input id="searchbar" type="text" placeholder="Pesquisar...">
+  </nav>
+
+  <!-- Patrocinadores -->
+<main>
+  <section class="patrocinadores">
+    <h2 id="sponsor-title">Nossos Patrocinadores</h2>
+    <div class="sponsor-grid">
+      <!-- Patrocinador 1 com vídeo -->
+    <div class="sponsor-with-video">
+    <div class="sponsor-card">
+      <img src="/img/PTI.png" alt="PTI Logo">
+      <div class="sponsor-text">
+        <h4>Itaipu Parquetec</h4>
+        <p id="sponsor-sub1">- Patrocinador Oficial -</p>
+        <div class="sponsor-description">
+          <p id="sponsor-desc1">O Itaipu Parquetec é um ecossistema de inovação localizado em Foz do Iguaçu, na Tríplice Fronteira. Reunindo instituições de ensino, empresas e governo, atua com foco em tecnologias sustentáveis e transição energética. Instalado na margem brasileira da Itaipu Binacional, possui 75,5 hectares com salas, laboratórios, centros de excelência e incubadoras voltadas à pesquisa, inovação e formação técnica.
+          <br>
+          </p>
+          <a id="sponsor-site1" href="https://www.pti.org.br" target="_blank" rel="noopener">Acesse o site</a>
+        </div>
+      </div>
+    </div>
+    <!-- Vídeo do YouTube -->
+    <div class="sponsor-video">
+    <iframe width="400" height="225" src="https://www.youtube.com/embed/sQ1QAwiWF38?rel=0" 
+    title="Vídeo do Parquetec" frameborder="0" allowfullscreen></iframe>
+    </div>
+    </div>
+    </div>
+  </section>
+</main>
+  <!-- Rodapé -->
+  <footer>
+    <p>© 2025 GCEE - Grupo Cataratas de Eficiência Energética</p>
+  </footer>
+<script>
+  function trocarIdioma(idioma) {
+    fetch(`sponsor-lang/${idioma}.json`)
+      .then(res => res.json())
+      .then(traducao => {
+        for (const id in traducao) {
+          const el = document.getElementById(id);
+          if (el) {
+            if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
+              el.setAttribute('placeholder', traducao[id]);
+            } else {
+              el.textContent = traducao[id];
+            }
+          }
+        }
+      });
+  }
+
+  document.querySelectorAll('.idiomas a').forEach((link, index) => {
+    const idiomas = ['portuguese', 'english', 'spanish'];
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      trocarIdioma(idiomas[index]);
+    });
+  });
+</script>
+</body>
+</html>
