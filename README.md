@@ -1,6 +1,6 @@
-## GCEE Website
+## Website oficial do GCEE
 
-Este é o repositório para o site GCEE.
+Este é o repositório oficial para o site do Grupo Cataratas de Eficiência Energética.
 
 ## Estrutura do Projeto
 
@@ -16,4 +16,4 @@ Este é o repositório para o site GCEE.
 
 ## Licença
 
-Este projeto está sob Licença Proprietária.
+Este projeto está sujeito a Licença Proprietária. APLICAÇÕES NÃO-AUTORIZADAS PROÍBIDAS.
